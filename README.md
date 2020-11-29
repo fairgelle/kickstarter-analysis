@@ -4,7 +4,7 @@
 1. [Project Motivation](#project-motivation)
 2. [Installation](#installation)
 3. [Findings](#findings)
-4. [Licensing, Authors & Acknowledgements](#licensing-authors-acknowledgements)
+4. [Licensing, Authors & Acknowledgements](#licensing-authors--acknowledgements)
 
 ## Project Motivation
 Kickstarter is a platform that helps people to raise funds for their projects. Each project will have a 'goal' that represents the amount of money that the product owner is hoping to raise. The people who contributed their money into the project are called 'backers'.
