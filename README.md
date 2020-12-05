@@ -15,7 +15,7 @@ This project aims to provide insights into the different factors that can affect
 The code should using Python version 3.0 and above and there should be no additional libraries necessary.
 
 ## Findings
-Findings can be found in this [Medium blogpost](https://lsndjie.medium.com/kickstarter-analysis-understanding-successful-campaigns-297400ba5cda).
+Findings can be found in this [Medium blog post](https://lsndjie.medium.com/kickstarter-analysis-understanding-successful-campaigns-297400ba5cda).
 
 ## Licensing, Authors & Acknowledgements
 Credits to Mickaël Mouillé for providing the data. Dataset can be found here on [Kaggle](https://www.kaggle.com/kemical/kickstarter-projects).
