@@ -12,7 +12,7 @@ Kickstarter is a platform that helps people to raise funds for their projects. E
 This project aims to provide insights into the different factors that can affect the success of a Kickstarter project. With this analysis, I hope that future fundraisers, or even backers, can be more discerning about the project elements to take into account to boost the chances of getting successful project.
 
 ## Installation
-The code should using Python version 3.0 and above and there should be no additional libraries necessary.
+The code should using Python version 3.0 and above. The additional libraries required to execute the code can be installed by running `pip install -r requirements.txt`
 
 ## Findings
 Findings can be found in this [Medium blog post](https://lsndjie.medium.com/kickstarter-analysis-understanding-successful-campaigns-297400ba5cda).
