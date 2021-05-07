@@ -1,38 +1,37 @@
-# Kickstarter Analysis
+# Disaster Response Classification Web App
 
 ## Table of Content
 1. [Project Motivation](#project-motivation)
 2. [Installation](#installation)
-3. [Findings](#findings)
+3. [About the Data](#about-the-data)
 4. [Licensing, Authors & Acknowledgements](#licensing-authors--acknowledgements)
 
 ## Project Motivation
-Kickstarter is a platform that helps people to raise funds for their projects. Each project will have a 'goal' that represents the amount of money that the product owner is hoping to raise. The people who contributed their money into the project are called 'backers'.
+Climate change has increased the number and severity of natural disasters all over the world. The shorter the response time of emergency services, the greater the number of lives that can be saved. This app is using a machine learning model that was trained on over 25,000 natural-disaster- related messages. 
 
-This project aims to provide insights into the different factors that can affect the success of a Kickstarter project. With this analysis, I hope that future fundraisers, or even backers, can be more discerning about the project elements to take into account to boost the chances of getting successful project.
+Disaster relief workers can use this app to input messages and it will return a classification of the message, such as "aid-related", "medical help", "water".
+With better identification of messages, we hope that emergency services could allocate resources or assistance more effectively.
 
 ## Installation
-The code should using Python version 3.0 and above. The additional libraries required to execute the code can be installed by running `pip install -r requirements.txt`
+The code should using Python version 3.6 and above. 
 
-## Findings Summary
+1. Start by [cloning](https://github.com/git-guides/git-clone) the repository into your local machine
+2. The additional libraries required to execute the code can be installed by running `pip install -r requirements.txt`
+3. Go ito the app/ directory and run `python run.py` to run the web app locally
+4. Open http://0.0.0.0:3001/ on your browser to view the web app
 
-_Riskiest Category_
-- The riskiest category is ‘Technology’. Not only does it require a lot of funds in the first place, but it also has the lowest success rate across all main categories.
-- ‘Journalism’ & ‘Crafts’ also have low success rates even though the amount of funds required to build the project is relatively low. When these projects failed, the amount of loss tends to be a lot lesser than the loss of Technology projects.
-- From the initial analysis, ‘Design’ seems to be pretty popular among backers and it has the highest median amount pledged. However, the goal that is set for Design projects tends to be high, which makes it more challenging for it to be successful.
+## Code Overview
+- Dataset: disaster_messages.csv and disaster_categories.csv contains messages data and the corresponding classification of the messages
+- process_data.py: This script cleans up and merges the two dataset. The result is then saved into an SQLite DB. In this project, the DB is named as DisasterResponse DB. The whole process is executed by running `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`
+- train_classifier.py: This script loads the data from the DisasterResponse.db and uses it as an input for the ML model. The fine-tuned model is then saved as a pickle file called classifier.pkl. This whole process is executed by running `python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`
+- templates folder: Contains files used for the frontend part of the web app
+- run.py: A file that contains pre-processing of the data that will be passed into the files in the templates folder. This also contains the script necessary to render the web app.
 
-_Safest Category_
-- The safest category to go for is ‘Dance’, followed by ‘Theater’ and ‘Comics’. These projects do not require a lot of fixed costs to start and have the highest success rates.
-- If product owners can reduce the cost associated with Design projects significantly, then it can be a good category to launch your product.
-Ideal Duration
-- Duration does not seem to affect the success of a project much. Setting a longer duration does not necessarily increase the amount pledged and the number of backers.
-- Based on the analysis, the ideal duration is around 30–60 days, where it can attract the highest number of backers & generated a good amount of money pledged.
+## About the Data
 
-_Ideal Duration_
-- Duration does not seem to affect the success of a project much. Setting a longer duration does not necessarily increase the amount pledged and the number of backers.
-- Based on the analysis, the ideal duration is around 30–60 days, where it can attract the highest number of backers & generated a good amount of money pledged.
+###  Imbalanced Dataset
 
-Please check out this [Medium blog post](https://lsndjie.medium.com/kickstarter-analysis-understanding-successful-campaigns-297400ba5cda) for the full write-up!
+Some of the labels in the original dataset are highly imbalanced; this affects the model's F1 score. For simplicity's purposes, these highly imbalanced fields are dropped in the process_data.py file. In the future, pre-processing methods to deal with imbalanced dataset for classification such as [MLSMOTE](https://medium.com/thecyphy/handling-data-imbalance-in-multi-label-classification-mlsmote-531155416b87) can be used.
 
 ## Licensing, Authors & Acknowledgements
-Credits to Mickaël Mouillé for providing the data. Dataset can be found here on [Kaggle](https://www.kaggle.com/kemical/kickstarter-projects).
+This project was completed as a part of Udacity Data Science Nanodegree. Credits to Figure Eight for providing the dataset.
